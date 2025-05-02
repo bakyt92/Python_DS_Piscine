@@ -1,20 +1,7 @@
 import sys
 import string
 
-def main(): 
-    # your tests and your error handling 
-    try:
-        assert len(sys.argv) < 3, "AssertionError: more than one argument is provided"
-    except AssertionError as error:
-        print(error)
-        sys.exit(1)
-    
-    if len(sys.argv) == 1:
-        print("Please provide a string argument:")
-        string1 = input()
-    else:
-        string1 = sys.argv[1]
-
+def analyze_text(string1):
     digits = 0
     upper = 0
     lower = 0
@@ -32,13 +19,30 @@ def main():
             lower += 1
         elif i in string.punctuation:
             punctuation += 1
-    
     print("The text cointains ", len(string1), "characters")
     print(upper, " upper letters")
     print(lower, " lower letters")
     print(punctuation, " punctuation marks")
     print(spaces, " spaces")
     print(digits, " digits")
+
+def main(): 
+    # your tests and your error handling 
+    try:
+        assert len(sys.argv) < 3, "more than one argument is provided"
+    except AssertionError as error:
+        print(AssertionError.__name__ + ":", error)
+        sys.exit(1)
+    if len(sys.argv) == 1:
+        try: 
+            string1 = input("What is the text to count?\n")
+            string1 += "\n"
+        except EOFError:
+            pass
+    else:
+        string1 = sys.argv[1]    
+    analyze_text(string1)
+    
 
 if __name__ == "__main__": 
     main()

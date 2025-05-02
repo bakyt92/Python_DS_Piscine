@@ -9,6 +9,7 @@ def main():
     dig = sys.argv[2]
     try:
         assert dig.isdigit(), "third argument should be integer"
+        assert text.isalpha(), "second argument should be string"
     except AssertionError as error:
         print(AssertionError.__name__ + ":", error)
     

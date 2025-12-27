@@ -6,12 +6,16 @@ def main():
     except AssertionError as error:
         print(AssertionError.__name__ + ":", error)
     text = sys.argv[1]
-    dig = sys.argv[2]
+    dig = int(sys.argv[2])
     try:
-        assert dig.isdigit(), "third argument should be integer"
-        assert text.isalpha(), "second argument should be string"
-    except AssertionError as error:
-        print(AssertionError.__name__ + ":", error)
-    
+        dig = int(sys.argv[2])
+    except ValueError:
+        print("AssertionError: the arguments are bad")
+        return
+    text_list = text.split()
+    text_output = [x for x in text_list if (lambda w: len(w) >= dig)(x)]
+    print(text_output)
+    return
+
 if __name__ == "__main__": 
     main()

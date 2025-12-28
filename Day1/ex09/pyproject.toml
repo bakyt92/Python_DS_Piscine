@@ -1,0 +1,18 @@
+[project]
+name = "ft_package"
+version = "0.0.1"
+authors = [
+    { name = "ufitzhug" },
+    { email = "ufitzhug@42.fr" }
+]
+description = "A simple test package"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+license = { file = "LICENSE" }
+
+[project.urls]
+Homepage = "https://github.com/bakyt92/ft_package"

@@ -3,4 +3,4 @@ def count_in_list(lst, word):
     for x in lst:
         if x == word:
             i += 1
-    return i
+    return f"output: {i}"

@@ -1,25 +1,26 @@
-
-
-def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
+def give_bmi(height: list[int | float],
+             weight: list[int | float]) -> list[int | float]:
     try:
         if not isinstance(height, list) or not isinstance(weight, list):
             raise TypeError("Wrong type, it should be a list")
         if len(height) != len(weight):
-            raise ValueError("Wrong value, it should be equal number of elements")
+            raise ValueError("It should be equal number of elements")
     except Exception as error:
-        print(f"You have following error: ", error)
+        print("You have following error: ", error)
         return []
-    try: 
+    try:
         result = []
         for h, w in zip(height, weight):
-            if not isinstance(h, (float, int)) or not isinstance(w, (float, int)):
+            if (not isinstance(h, (float, int)) or
+                    not isinstance(w, (float, int))):
                 raise TypeError("Wrong type, it should be a int / float")
             values = w / (h ** 2)
             result.append(values)
     except Exception as error:
-        print(f"You have following error: ", error)
+        print("You have following error: ", error)
         return []
     return result
+
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     try:
@@ -31,11 +32,11 @@ def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
                 raise TypeError("Wrong type, it should be a int / float")
             if b > limit:
                 value = True
-            else: 
+            else:
                 value = False
-            result.append(value) 
+            result.append(value)
     except Exception as error:
-        print(f"You have following error: ", error)
+        print("You have following error: ", error)
         return []
     return result
 
@@ -44,7 +45,7 @@ def main():
     height = [2.71, 1.15]
     weight = [165.3, 38.4]
 
-    ## test wrong data 
+    # test wrong data
     # height = [2.71, 'a', 1.15]
     # weight = [165.3, 38.4]
 
@@ -55,6 +56,7 @@ def main():
     if limits:
         print(limits)
     return
+
 
 if __name__ == "__main__":
     main()

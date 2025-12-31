@@ -1,5 +1,12 @@
 def give_bmi(height: list[int | float],
              weight: list[int | float]) -> list[int | float]:
+    """
+    Calculate BMI
+
+    Args: 2 lists of floats or ints (height and weight)
+
+    Return: list of calculated BMI 
+    """
     try:
         if not isinstance(height, list) or not isinstance(weight, list):
             raise TypeError("Wrong type, it should be a list")
@@ -23,6 +30,9 @@ def give_bmi(height: list[int | float],
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
+    """
+    Applies limit and responds with list of True / False
+    """
     try:
         if not isinstance(bmi, list):
             raise TypeError("Wrong type, it should be a list")

@@ -3,29 +3,28 @@ import sys
 
 import matplotlib.image as implt
 import numpy as np
+from numpy import array
 
 def ft_load(path: str) -> array:
     try:
-        img1 = implt.imread(str)
-        pillow_img = Image.open(str)
+        img1 = implt.imread(path)
+        pillow_img = Image.open(path)
         print(f"File format: {pillow_img.format}")
+        print(f"Shape:  {img1.shape}")
     except Exception as e:
         print(e)
-    return 
+        return f"Error occured"
+    return img1
 
 
 def main():  
     try:
         assert len(sys.argv) == 2, "AssertionError: please provide one argument for file path"
         x = sys.argv[1]
-        assert x.isdigit(), "AssertionError: argument is not an integer"
+        print(ft_load(x))
     except AssertionError as msg:
         print(msg)
         return
-    except Exception as e:
-        print(e)
-    try:
-        ft_load(x)
     except Exception as e:
         print(e)
     return 

@@ -23,17 +23,3 @@ def ft_load(path: str) -> array:
         return f"Error occured"
     return img1
 
-def main():  
-    try:
-        assert len(sys.argv) == 2, "AssertionError: please provide one argument for file path"
-        x = sys.argv[1]
-        print(ft_load(x))
-    except AssertionError as msg:
-        print(msg)
-        return
-    except Exception as e:
-        print(e)
-    return 
-
-if __name__ == "__main__":
-    main()

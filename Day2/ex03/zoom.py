@@ -30,7 +30,7 @@ def ft_zoom(path: str):
         plt.imshow(arraynp, cmap='gray')
         plt.axis('on')
         plt.show()
-        grayscale_img.show()
+        # grayscale_img.show()
 
     except Exception as e:
         print(e)

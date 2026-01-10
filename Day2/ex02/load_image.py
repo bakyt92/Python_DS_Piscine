@@ -6,6 +6,14 @@ import numpy as np
 from numpy import array
 
 def ft_load(path: str) -> array:
+    """
+    Loads an image and returns array
+    Docstring for ft_load
+    
+    Parameters: path to file
+
+    Return value: array in numpy format (for image)
+    """
     try:
         img1 = implt.imread(path)
         pillow_img = Image.open(path)

@@ -54,6 +54,10 @@ def ft_blue(array) -> np.array:
     return output
 
 def ft_grey(array) -> np.array:
+    """
+    Converts RGB image to grayscale using average method.    
+    Returns: Grayscale image as 2D NumPy array
+    """
     if not isinstance(array, np.ndarray):
         print("Error: Input is not a NumPy array")
         return None
@@ -75,6 +79,7 @@ def main():
         # ft_green(image_array)
         # ft_blue(image_array)
         ft_grey(image_array)
+        print(ft_grey.__doc__)
     except AssertionError as msg:
         print(msg)
         return

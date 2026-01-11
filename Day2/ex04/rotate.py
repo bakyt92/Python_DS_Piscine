@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def rgb2gray(rgb):
-    return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
+    return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140]).astype(np.uint8)
 
 def ft_rotate(path: str):
     try: 
@@ -27,17 +27,21 @@ def ft_rotate(path: str):
         assert widht == height, "AssertionError: new form is not square"
         arraynp = np.array(new_image)
         grayscale_array = rgb2gray(arraynp)
+        print(f"Shape before: {grayscale_array.shape}")
+        print(grayscale_array)
         new_array1 = []
         for x in range(widht):
             new_row = []
             for y in range(height):
-                new_row.append(grayscale_array[y][x])
+                new_row.append(grayscale_array[y][x].astype(np.uint8))
             new_array1.append(new_row)
         np_array = np.array(new_array1)
         #grayscale_img = Image.fromarray(np_array.astype(np.uint8))
-        print(f"New shape: {np_array.shape}")
+        print(f"New shape after Transpose: {np_array.shape}")
+        print(np_array)
         plt.imshow(np_array, cmap='gray')
         plt.axis('on')
+        plt.title("Transposed Image")
         plt.show()
     except AssertionError as err:
         print(err)
@@ -52,7 +56,6 @@ def main():
     try:
         assert len(sys.argv) == 2, "AssertionError: please provide one argument for file path"
         x = sys.argv[1]
-        print(ft_load(x))
         ft_rotate(x)
     except AssertionError as msg:
         print(msg)

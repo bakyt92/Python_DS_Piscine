@@ -5,7 +5,7 @@ def give_bmi(height: list[int | float],
 
     Args: 2 lists of floats or ints (height and weight)
 
-    Return: list of calculated BMI 
+    Return: list of calculated BMI
     """
     try:
         if not isinstance(height, list) or not isinstance(weight, list):

@@ -2,10 +2,13 @@ import sys
 from load_image import ft_load
 import numpy as np
 import matplotlib.pyplot as plt
-from PIL import Image
 
 
 def ft_invert(array) -> np.array:
+    """
+    Inverts RGB image.    
+    Returns: Inverted image as 2D NumPy array
+    """
     if not isinstance(array, np.ndarray):
         print("Error: Input is not a NumPy array")
         return None
@@ -16,7 +19,12 @@ def ft_invert(array) -> np.array:
     plt.show()
     return new_array
 
+
 def ft_red(array) -> np.array:
+    """
+    Converts RGB image to red filter using slicer.
+    Returns: red image as 2D NumPy array
+    """
     if not isinstance(array, np.ndarray):
         print("Error: Input is not a NumPy array")
         return None
@@ -27,7 +35,12 @@ def ft_red(array) -> np.array:
     plt.show()
     return new_array
 
+
 def ft_green(array) -> np.array:
+    """
+    Converts RGB image to green filter using slicing approach.
+    Returns: red image as 2D NumPy array
+    """
     if not isinstance(array, np.ndarray):
         print("Error: Input is not a NumPy array")
         return None
@@ -40,7 +53,12 @@ def ft_green(array) -> np.array:
     plt.show()
     return output
 
+
 def ft_blue(array) -> np.array:
+    """
+    Converts RGB image to blue filter using slicing method.
+    Returns: Blue image as 2D NumPy array
+    """
     if not isinstance(array, np.ndarray):
         print("Error: Input is not a NumPy array")
         return None
@@ -53,9 +71,10 @@ def ft_blue(array) -> np.array:
     plt.show()
     return output
 
+
 def ft_grey(array) -> np.array:
     """
-    Converts RGB image to grayscale using average method.    
+    Converts RGB image to grayscale using average method.
     Returns: Grayscale image as 2D NumPy array
     """
     if not isinstance(array, np.ndarray):
@@ -70,22 +89,26 @@ def ft_grey(array) -> np.array:
     plt.show()
     return gray
 
-def main():  
+
+def main():
     try:
         assert len(sys.argv) == 2, "AssertionError: please provide one argument for file path"
-        image_array = np.asarray(Image.open(sys.argv[1]))
-        ft_invert(image_array)
-        ft_red(image_array)
-        ft_green(image_array)
-        ft_blue(image_array)
-        ft_grey(image_array)
+        image_arr = ft_load(sys.argv[1])
+        # image_array = np.asarray(Image.open(sys.argv[1]))
+        ft_invert(image_arr)
+        ft_red(image_arr)
+        ft_green(image_arr)
+        ft_blue(image_arr)
+        ft_grey(image_arr)
         print(ft_grey.__doc__)
     except AssertionError as msg:
         print(msg)
         return
     except Exception as e:
         print(e)
-    return 
+        return
+    return
+
 
 if __name__ == "__main__":
     main()

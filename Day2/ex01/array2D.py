@@ -1,12 +1,13 @@
 import numpy as numpy
 
+
 def slice_me(family: list, start: int, end: int) -> list:
     """
         Function returns truncated version of input Array
 
         Args: array
 
-        Return: list of truncated version 
+        Return: list of truncated version
     """
     try: 
         assert isinstance(family, list), "Variable family is not a list"
@@ -20,6 +21,7 @@ def slice_me(family: list, start: int, end: int) -> list:
     print("My new shape is:", numpy.array(new_list).shape)
     return new_list
 
+
 def main():
     family = [[1.80, 78.4],
     [2.15, 102.7],
@@ -27,6 +29,7 @@ def main():
     [1.88, 75.2]]
     print(slice_me(family, 0, 2))
     print(slice_me(family, 1, -2))
+
 
 if __name__ == "__main__":
     main()

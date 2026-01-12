@@ -10,7 +10,7 @@ def slice_me(family: list, start: int, end: int) -> list:
     try:
         assert isinstance(family, list), "Variable family is not a list"
         assert isinstance(start, int), "Variable start is not a int"
-        assert isinstance(end, int), "Variable start is not a int"
+        assert isinstance(end, int), "Variable end is not a int"
     except AssertionError as error:
         print(f"Error raised: {error}")
         return []

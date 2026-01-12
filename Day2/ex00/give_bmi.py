@@ -2,9 +2,7 @@ def give_bmi(height: list[int | float],
              weight: list[int | float]) -> list[int | float]:
     """
     Calculate BMI
-
     Args: 2 lists of floats or ints (height and weight)
-
     Return: list of calculated BMI
     """
     try:

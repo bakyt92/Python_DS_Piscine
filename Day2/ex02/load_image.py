@@ -17,7 +17,7 @@ def ft_load(path: str) -> array:
         print(f"Shape:  {img1.shape}")
     except Exception as e:
         print(e)
-        return ("Error occured")
+        sys.exit()
     return img1
 
 

@@ -1,16 +1,14 @@
 from PIL import Image
 import sys
 import matplotlib.image as implt
-import numpy as np
 from numpy import array
+
 
 def ft_load(path: str) -> array:
     """
     Loads an image and returns array
     Docstring for ft_load
-    
     Parameters: path to file
-
     Return value: array in numpy format (for image)
     """
     try:
@@ -20,6 +18,5 @@ def ft_load(path: str) -> array:
         print(f"Shape:  {img1.shape}")
     except Exception as e:
         print(e)
-        return f"Error occured"
+        sys.exit()
     return img1
-

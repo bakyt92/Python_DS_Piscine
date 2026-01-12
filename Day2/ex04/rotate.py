@@ -4,11 +4,13 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def rgb2gray(rgb):
-    return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140]).astype(np.uint8)
+    return np.dot(rgb[..., :3], [0.2989, 0.5870, 0.1140]).astype(np.uint8)
+
 
 def ft_rotate(path: str):
-    try: 
+    try:
         image_pillow = Image.open(path)
         widht, height = image_pillow.size
 
@@ -22,10 +24,13 @@ def ft_rotate(path: str):
             bottom_point = widht * 0.6
             left_point = widht * 0.3
             right_point = widht * 0.8
-        new_image = image_pillow.crop((left_point, top_point, right_point, bottom_point))
+        new_image = image_pillow.crop((left_point, top_point,
+                                       right_point, bottom_point))
+        new_image.save()
+        arraynp = ft_load("new_img")
         widht, height = new_image.size
         assert widht == height, "AssertionError: new form is not square"
-        arraynp = np.array(new_image)
+        # arraynp = np.array(new_image)
         grayscale_array = rgb2gray(arraynp)
         print(f"Shape before: {grayscale_array.shape}")
         print(grayscale_array)
@@ -36,7 +41,7 @@ def ft_rotate(path: str):
                 new_row.append(grayscale_array[y][x].astype(np.uint8))
             new_array1.append(new_row)
         np_array = np.array(new_array1)
-        #grayscale_img = Image.fromarray(np_array.astype(np.uint8))
+        # grayscale_img = Image.fromarray(np_array.astype(np.uint8))
         print(f"New shape after Transpose: {np_array.shape}")
         print(np_array)
         plt.imshow(np_array, cmap='gray')
@@ -52,9 +57,10 @@ def ft_rotate(path: str):
     return
 
 
-def main():  
+def main():
     try:
-        assert len(sys.argv) == 2, "AssertionError: please provide one argument for file path"
+        assert len(sys.argv) == 2, \
+            "AssertionError: please provide one argument for file path"
         x = sys.argv[1]
         ft_rotate(x)
     except AssertionError as msg:
@@ -62,7 +68,8 @@ def main():
         return
     except Exception as e:
         print(e)
-    return 
+    return
+
 
 if __name__ == "__main__":
     main()

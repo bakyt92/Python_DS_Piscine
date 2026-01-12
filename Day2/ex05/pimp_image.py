@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def ft_invert(array) -> np.array:
     """
-    Inverts RGB image.    
+    Inverts RGB image.
     Returns: Inverted image as 2D NumPy array
     """
     if not isinstance(array, np.ndarray):
@@ -81,7 +81,8 @@ def ft_grey(array) -> np.array:
         print("Error: Input is not a NumPy array")
         return None
     output = array.copy()
-    gray = output[:, :, 0] / 3.347 + output[:, :, 1] / 1.703 + output[:, :, 2] / 8.772
+    gray = (output[:, :, 0] / 3.347
+            + output[:, :, 1] / 1.703 + output[:, :, 2] / 8.772)
 
     plt.imshow(gray, cmap="gray")
     plt.axis('on')
@@ -92,7 +93,8 @@ def ft_grey(array) -> np.array:
 
 def main():
     try:
-        assert len(sys.argv) == 2, "AssertionError: please provide one argument for file path"
+        assert len(sys.argv) == 2, \
+           "AssertionError: please provide one argument for file path"
         image_arr = ft_load(sys.argv[1])
         # image_array = np.asarray(Image.open(sys.argv[1]))
         ft_invert(image_arr)

@@ -74,10 +74,10 @@ def main():
     try:
         assert len(sys.argv) == 2, "AssertionError: please provide one argument for file path"
         image_array = np.asarray(Image.open(sys.argv[1]))
-        # ft_invert(image_array)
-        # ft_red(image_array)
-        # ft_green(image_array)
-        # ft_blue(image_array)
+        ft_invert(image_array)
+        ft_red(image_array)
+        ft_green(image_array)
+        ft_blue(image_array)
         ft_grey(image_array)
         print(ft_grey.__doc__)
     except AssertionError as msg:

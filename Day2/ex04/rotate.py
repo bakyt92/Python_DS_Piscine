@@ -26,8 +26,8 @@ def ft_rotate(path: str):
             right_point = widht * 0.8
         new_image = image_pillow.crop((left_point, top_point,
                                        right_point, bottom_point))
-        new_image.save()
-        arraynp = ft_load("new_img")
+        new_image.save("new_img.jpeg")
+        arraynp = ft_load("new_img.jpeg")
         widht, height = new_image.size
         assert widht == height, "AssertionError: new form is not square"
         # arraynp = np.array(new_image)

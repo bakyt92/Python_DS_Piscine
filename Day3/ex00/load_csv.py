@@ -5,16 +5,11 @@ class DatasetError(Exception):
     """Base exception for dataset-related errors."""
     pass
 
-# def ft_print(Dataset):
-#     try:
-#         print(Dataset.head(1))
-#         #print(Dataset.iloc[1])
-#     except Exception as e:
-#         print(e)
-#         sys.exit(1)
-#     return
-
 def ft_shape(Dataset):
+    """
+    Ft_shape is function to write dataset's shape (width and height)
+    Args: dataset (DataFrame, Pandas)
+    """
     try:
         rows = 0
         columns = 0
@@ -27,6 +22,10 @@ def ft_shape(Dataset):
     return
 
 def ft_validation(Dataset):
+    """
+    ft_validation is function to validate input dataset for basic edge cases: empty lines, empty dataset
+    Args: dataset (DataFrame, Pandas)
+    """
     try:
         if Dataset.size == 0:
             raise DatasetError("File is empty, no elements")
@@ -45,13 +44,17 @@ def ft_validation(Dataset):
     return
 
 def load(path: str) -> pd.DataFrame:
+    """
+    load - function to load dataset from file and do basic tests: 
+    - file exists 
+    - file has CSV extension
+    """
     try:
         if not path.endswith(".csv"):
             raise TypeError("File is not correct extension")
         Dataset = pd.read_csv(path)
         ft_validation(Dataset)
         ft_shape(Dataset)
-        #ft_print(Dataset)
     except Exception as e:
         print(e)
         sys.exit()

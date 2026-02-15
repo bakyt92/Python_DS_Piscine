@@ -9,18 +9,14 @@ def ft_visualize(Dataset):
     try:
         Dataset = Dataset.set_index('country')
         selected = Dataset.loc['France']
-        #print(Dataset)
-        #print(selected)
         years = selected.index.astype(int)
         values = selected.values.astype(float)
         fig, ax = plt.subplots()
         ax.plot(years, values)
         ax.set_xticks(range(1800, 2101, 40))  
-        # ax.set_xticks(years)
-        # tick_labels = [year if i % 40 == 0 else '' for i, year in enumerate(years)]
-        # ax.set_xticklabels(tick_labels)
         ax.set_xlabel('Year')
         ax.set_ylabel('Life expectancy')
+        ax.set_title('France Life Expectancy') 
         plt.show()
     except Exception as e:
         print(e)

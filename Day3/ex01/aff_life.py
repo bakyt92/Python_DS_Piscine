@@ -1,11 +1,13 @@
 import matplotlib.pyplot as plt
-import pandas as pd 
 from matplotlib.ticker import MultipleLocator
 from load_csv import load
 import sys
 
 
 def ft_visualize(Dataset):
+    """
+    FT_visulalize - generate a plot of selected country's data
+    """
     try:
         Dataset = Dataset.set_index('country')
         selected = Dataset.loc['France']
@@ -22,6 +24,7 @@ def ft_visualize(Dataset):
         print(e)
         sys.exit(1)
     return
+
 
 def main():
     try:

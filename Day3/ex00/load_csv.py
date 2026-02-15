@@ -1,9 +1,12 @@
 import sys
 import pandas as pd
+import os
+
 
 class DatasetError(Exception):
     """Base exception for dataset-related errors."""
     pass
+
 
 def ft_shape(Dataset):
     """
@@ -21,9 +24,11 @@ def ft_shape(Dataset):
         sys.exit(1)
     return
 
+
 def ft_validation(Dataset):
     """
-    ft_validation is function to validate input dataset for basic edge cases: empty lines, empty dataset
+    ft_validation is function to validate input dataset
+    for basic edge cases: empty lines, empty dataset.
     Args: dataset (DataFrame, Pandas)
     """
     try:
@@ -37,19 +42,22 @@ def ft_validation(Dataset):
             for y in x:
                 if not isinstance(y, (str, int, float)):
                     raise TypeError("value is not float or integer")
-        print("Whole array was checked. Type of Data is correct: str, int or float")     
+        print("Whole array was checked. Data is correct")
     except Exception as e:
         print(e)
         sys.exit()
     return
 
+
 def load(path: str) -> pd.DataFrame:
     """
-    load - function to load dataset from file and do basic tests: 
-    - file exists 
+    load - function to load dataset from file and do basic tests:
+    - file exists
     - file has CSV extension
     """
     try:
+        if not os.path.isfile(path):
+            raise OSError("File is not found / does not exist")
         if not path.endswith(".csv"):
             raise TypeError("File is not correct extension")
         Dataset = pd.read_csv(path)
@@ -59,6 +67,7 @@ def load(path: str) -> pd.DataFrame:
         print(e)
         sys.exit()
     return Dataset
+
 
 def main():
     try:

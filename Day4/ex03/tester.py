@@ -9,3 +9,7 @@ print("---")
 v3 = calculator([10.0, 15.0, 20.0])
 v3 - 5
 v3 / 5
+print("---")
+v4 = calculator([10.0, 15.0, 20.0])
+v4 / 0
+print("---")

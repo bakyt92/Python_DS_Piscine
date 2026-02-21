@@ -19,7 +19,7 @@ class Character(ABC):
 
 
 class Stark(Character):
-    """STARK is sub-class of Character class"""
+    """ Representing Stark Family """
     def __init__(self, first_name: str, is_alive: bool = True):
         """ Creates STARK Character, subclass of Character """
         super().__init__(first_name, is_alive)

@@ -1,12 +1,13 @@
 import sys
 
+
 class calculator:
     """ Calculator instance"""
 
     def __init__(self, _data):
         """ Creates Character """
-        try: 
-            for x in _data: 
+        try:
+            for x in _data:
                 if isinstance(x, (int, float)):
                     continue
                 else:
@@ -16,7 +17,7 @@ class calculator:
             sys.exit(1)
         self.data = list(_data)
         return
-    
+
     def __add__(self, object) -> None:
         """Function performs addition to vector with a scalar"""
         try:
@@ -47,7 +48,6 @@ class calculator:
         print(f'Res is: {self.data}')
         return
 
-
     def __sub__(self, object) -> None:
         """Function performs multiplication to vector with a scalar"""
         try:
@@ -62,7 +62,6 @@ class calculator:
             sys.exit(1)
         print(f'Res is: {self.data}')
         return
-
 
     def __truediv__(self, object) -> None:
         """Function performs multiplication to vector with a scalar"""

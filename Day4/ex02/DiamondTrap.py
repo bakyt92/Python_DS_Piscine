@@ -18,11 +18,11 @@ class King(Baratheon, Lannister):
 
     def get_hairs(self):
         """ Getter method for hairs """
-        return(self.hairs)
+        return (self.hairs)
 
     def get_eyes(self):
         """ Getter method for eyes """
-        return(self.eyes)
+        return (self.eyes)
 
     def die(self):
         """Abstract (mandatory method for

@@ -27,6 +27,6 @@ class King(Baratheon, Lannister):
     def die(self):
         """Abstract (mandatory method for
         all character class instances)
-        Sets value is alive to False"""
+        Sets value is_alive to False"""
         self.is_alive = False
         return

@@ -30,14 +30,20 @@ def ft_var(*args):
     for digit in args:
         number = (digit - mean) ** 2
         sum_var += number
-    return (sum_var / (len(args) - 1))
+    return (sum_var / (len(args)))
 
 def ft_std(*args):
+    """
+    Calculate of STD for provided list / args
+    """
     variance = ft_var(*args)
     return variance ** 0.5
 
     
 def ft_median(*args):
+    """
+    Calculate of Median for provided list / args
+    """
     lst = list(args)
     lst.sort()
     if len(lst) % 2 == 0:
@@ -49,6 +55,9 @@ def ft_median(*args):
 
 
 def ft_quartile(*args):
+    """
+    Calculate of Quartile for provided list / args
+    """
     lst = list(args)
     lst.sort()
     if len(lst) < 4:
@@ -67,6 +76,9 @@ def ft_quartile(*args):
 
 
 def ft_statistics(*args: Any, **kwargs: Any) -> None:
+    """
+    General function to calculate statistics
+    """
     operations = ["var", "std", "quartile", "mean", "median"]
     try:
         if len(args) < 2:

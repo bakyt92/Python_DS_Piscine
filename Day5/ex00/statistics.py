@@ -15,10 +15,10 @@ def ft_mean(*args):
     """
     Calculate of mean value for provided list / args
     """
-    sum = 0
+    total = 0
     for digit in args:
-        sum += digit
-    return (sum / len(args))
+        total += digit
+    return (total / len(args))
 
 
 def ft_var(*args):
@@ -51,14 +51,18 @@ def ft_median(*args):
 def ft_quartile(*args):
     lst = list(args)
     lst.sort()
+    if len(lst) < 4:
+        raise ValueError("Error: need at least 4 values for quartile")    
     if len(lst) % 4 == 0:
         q1_index = len(lst) // 4
-        q1 = lst[q1_index]
-        q3 = lst[q1_index * 3]
+        q3_index = len(lst) * 3 // 4
+        q1 = (lst[q1_index - 1] + lst[q1_index]) / 2
+        q3 = (lst[q3_index - 1] + lst[q3_index]) / 2
     else: 
         q1_index = len(lst) // 4
-        q1 = (lst[q1_index] + lst[q1_index - 1]) / 2
-        q3 = (lst[q1_index * 3] + lst[q1_index * 3 - 1]) / 2
+        q3_index = len(lst) * 3 // 4
+        q1 = lst[q1_index]
+        q3 = lst[q3_index]
     return q1, q3
 
 
@@ -72,19 +76,19 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
         for digit in args:
             if not isinstance(digit, (float, int)):
                 raise TypeError("ERROR: Type of data is not numeric")
-        for keyword in kwargs:
+        for keyword in kwargs.values():
             if keyword not in operations:
                 raise NameError("ERROR: Name of transaction is not listed")
-        if "std" in kwargs:
-            print("STD:", {ft_std(*args)})
-        if "mean" in kwargs:
-            print("mean:", {ft_mean(*args)})
-        if "var" in kwargs:
-            print("var:", {ft_var(*args)})
-        if "median" in kwargs:
-            print("median:", {ft_median(*args)})
-        if "quartile" in kwargs:
-            print("q1 and q2:", {ft_quartile(*args)})
+            if keyword == "std":
+                print(f"STD: {ft_std(*args)}")
+            elif keyword == "mean":
+                print(f"mean: {ft_mean(*args)}")
+            elif keyword == "var":
+                print(f"var: {ft_var(*args)}")
+            elif keyword == "median":
+                print(f"median:  {ft_median(*args)}")
+            elif keyword == "quartile":
+                print(f"q1 and q3: {ft_quartile(*args)}")
     except Exception as e: 
         print(e)
         sys.exit(1)

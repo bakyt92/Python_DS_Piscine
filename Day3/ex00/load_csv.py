@@ -70,6 +70,9 @@ def load(path: str) -> pd.DataFrame:
 
 
 def main():
+    """
+    Docstring for main: main func
+    """
     try:
         assert len(sys.argv) == 2, \
             "AssertionError: please provide one argument for file path"

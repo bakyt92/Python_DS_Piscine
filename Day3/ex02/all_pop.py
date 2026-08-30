@@ -7,7 +7,7 @@ import sys
 
 def ft_visualize(Dataset):
     """
-    FT_visulalize - generate a plot of 2 country's data
+    FT_visulalize - generate a plot of 2 country's data - to compare these datas points
     """
     try:
         #marked_list = Dataset['country'].tolist()

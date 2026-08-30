@@ -43,7 +43,7 @@ def ft_validation(Dataset) -> pd.DataFrame:
             values = row[1:]
             inv_count = 0
             for val in values:
-                if pd.isna(val) or not isinstance(val, (int, float)):
+                if pd.isna(val):
                     inv_count += 1
             if inv_count > (len(values) / 2):
                 print(f"Row", {row[:10]}, " is not valid, more than half of values is Nan OR not numeric. This row will be dropped.")

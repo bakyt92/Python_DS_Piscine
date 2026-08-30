@@ -10,6 +10,8 @@ def ft_visualize(Dataset):
     FT_visulalize - generate a plot of 2 country's data
     """
     try:
+        #marked_list = Dataset['country'].tolist()
+        #print(marked_list)
         Dataset = Dataset.set_index('country')
         Dataset = Dataset.replace({'M': '*1e6', 'k': '*1e3', 'B': '*1e9'},
                                   regex=True)

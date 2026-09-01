@@ -8,6 +8,26 @@ class King(Baratheon, Lannister):
         super().__init__(first_name, is_alive)
         return
 
+    @property
+    def eyes(self):
+        """Returns colour of eyes"""
+        return self.__dict__["eyes"]
+
+    @property
+    def hairs(self):
+        """Returns colour of hairs"""
+        return self.__dict__["hairs"]
+
+    @eyes.setter
+    def eyes(self, value):
+        """Setter method - property for eyes"""
+        self.__dict__["eyes"] = value
+
+    @hairs.setter
+    def hairs(self, value: str):
+        """Setter method - property for hairs"""
+        self.__dict__["hairs"] = value
+
     def set_eyes(self, _eyes: str):
         """ Set method to set color of eyes """
         self.eyes = _eyes
@@ -28,5 +48,5 @@ class King(Baratheon, Lannister):
         """Abstract (mandatory method for
         all character class instances)
         Sets value is_alive to False"""
-        self.is_alive = False
+        super().die()
         return

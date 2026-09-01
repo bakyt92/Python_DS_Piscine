@@ -25,11 +25,11 @@ class calculator:
             assert len(V1) == len(V2), "Non-equal number of elements"
             list1 = []
             for i, x in enumerate(V1):
-                list1.append(x + V2[i])
+                list1.append(float(x + V2[i]))
         except Exception as e:
             print(e)
             sys.exit(1)
-        formatted = [f"{x: .2f}" for x in list1]
+        formatted = [f"{x: .1f}" for x in list1]
         print(f'Add vector is {formatted}')
         return
 
@@ -40,10 +40,10 @@ class calculator:
             assert len(V1) == len(V2), "Non-equal number of elements"
             list1 = []
             for i, x in enumerate(V1):
-                list1.append(x - V2[i])
+                list1.append(float(x - V2[i]))
         except Exception as e:
             print(e)
             sys.exit(1)
-        formatted = [f"{x: .2f}" for x in list1]
+        formatted = [f"{x: .1f}" for x in list1]
         print(f'Sous vector is {formatted}')
         return

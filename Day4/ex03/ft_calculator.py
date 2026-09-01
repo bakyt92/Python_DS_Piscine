@@ -12,7 +12,8 @@ class calculator:
                 if isinstance(x, (int, float)):
                     continue
                 else:
-                    raise ValueError("Input data are not numbers: int or floats")
+                    raise ValueError("Input data are  \
+                                        not numbers: int or floats")
         except Exception as e:
             print(e)
             sys.exit(1)

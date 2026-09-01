@@ -16,12 +16,12 @@ class Baratheon(Character):
         return f'Vector ({self.family_name}, {self.eyes}, {self.hairs})'
 
     def __repr__(self):
-        """Return __str__ (detailes description for developers)"""
+        """Return __str__ (detailed description for developers)"""
         return f'Vector ({self.family_name}, {self.eyes}, {self.hairs})'
 
     def die(self):
         """Kill the Character by setting is_alive to False."""
-        self.is_alive = False
+        super().die()
         return
 
 
@@ -40,12 +40,12 @@ class Lannister(Character):
         return f'Vector ({self.family_name}, {self.eyes}, {self.hairs})'
 
     def __repr__(self):
-        """Return __str__ (detailes description for developers)"""
+        """Return __str__ (detailed description for developers)"""
         return f'Vector ({self.family_name}, {self.eyes}, {self.hairs})'
 
     def die(self):
         """Kill the Character by setting is_alive to False."""
-        self.is_alive = False
+        super().die()
         return
 
     @classmethod

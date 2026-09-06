@@ -75,7 +75,7 @@ def ft_quartile(*args):
         q3_index = len(lst) * 3 // 4
         q1 = lst[q1_index]
         q3 = lst[q3_index]
-    return float(q1), float(q3)
+    return [float(q1), float(q3)]
 
 
 def ft_statistics(*args: Any, **kwargs: Any) -> None:
@@ -84,16 +84,19 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
     """
     operations = ["var", "std", "quartile", "mean", "median"]
     try:
-        if len(args) < 2:
-            raise MyCustomError("ERROR: not sufficient quantity of arguments")
+        # if len(args) < 2:
+        #    raise MyCustomError("ERROR: not sufficient quantity of arguments")
         if len(kwargs) < 1:
             raise MyCustomError("ERROR: not sufficient quantity of operations")
         for digit in args:
             if not isinstance(digit, (float, int)):
                 raise TypeError("ERROR: Type of data is not numeric")
         for keyword in kwargs.values():
+            if len(args) == 0:
+                print("ERROR")
+                continue
             if keyword not in operations:
-                raise NameError("ERROR: Name of transaction is not listed")
+                continue
             if keyword == "std":
                 print(f"STD: {ft_std(*args)}")
             elif keyword == "mean":
@@ -106,14 +109,13 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
                 print(f"q1 and q3: {ft_quartile(*args)}")
     except Exception as e:
         print(e)
-        sys.exit(1)
     return
 
 
 def main():
     if len(sys.argv) < 2:
         print("Usage: python3 statistics.py 1 2 3 4 5 mean var std")
-        sys.exit(1)
+        return
     operations = ["mean", "var", "std", "median", "quartile"]
     args = []
     kwargs = {}
